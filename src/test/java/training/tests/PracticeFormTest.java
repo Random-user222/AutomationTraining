@@ -13,6 +13,7 @@ import java.util.*;
 public class PracticeFormTest extends BaseTest{
 
     //Creem o metoda de test care sa mearga de pe pagina principala pana pe pagina PracticeForms
+    //
 
 
     private java.time.format.DateTimeFormatter DateTimeFormatter;
