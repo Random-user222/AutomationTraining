@@ -12,18 +12,14 @@ import java.util.*;
 
 public class PracticeFormTest extends BaseTest{
 
-    //Creem o metoda de test care sa mearga de pe pagina principala pana pe pagina PracticeForms
-
-
     private java.time.format.DateTimeFormatter DateTimeFormatter;
 
+    //Creem o metoda de test care sa mearga de pe pagina principala pana pe pagina PracticeForms
     @Test
     public void navigateFromHomePageToPracticeFormPage() {
 
-        HomePage homePage = new HomePage(driver);
         homePage.isPageLoaded();
         homePage.selectMenu("Forms");
-        CommonPage commonPage = new CommonPage(driver);
         commonPage.isPageLoaded();
         commonPage.selectSubMenu("Practice Form");
         PracticeFormPage practiceFormPage = new PracticeFormPage(driver);
