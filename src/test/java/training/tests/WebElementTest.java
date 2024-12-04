@@ -33,11 +33,11 @@ newRecordTabel();
 }
 
 String numeStudent = "Eduard-Marta";
-String prenumeStudent = "Vorbareata";
+String prenumeStudent = "";
 String emailStudent = "edi22@gmail.com";
 String ageStudent = "26";
 String salariuStudent = "2800";
-String departamentStudent = "OF Chatter";
+String departamentStudent = "Chatter";
 
     public void openBrowser() {
         driver = new ChromeDriver();
