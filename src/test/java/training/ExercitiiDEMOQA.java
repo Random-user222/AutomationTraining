@@ -42,80 +42,80 @@ public class ExercitiiDEMOQA {
         driver.manage().window().maximize();
     }
 
-    public void textBoxMenu() {
-        WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        elementsMenu.click();
+//    public void textBoxMenu() {
+//        WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
+//        elementsMenu.click();
+//
+//        WebElement clickOnTextBoxMenu = driver.findElement(By.xpath("//span[text()='Text Box']"));
+//        clickOnTextBoxMenu.click();
 
-        WebElement clickOnTextBoxMenu = driver.findElement(By.xpath("//span[text()='Text Box']"));
-        clickOnTextBoxMenu.click();
+//        WebElement nameField = driver.findElement(By.id("userName"));
+//        nameField.sendKeys("Stanciu Ionut");
+//
+//        WebElement emailFiled = driver.findElement(By.xpath("//input[@id='userEmail']"));
+//        emailFiled.sendKeys("it@gmail.com");
+//
+//        WebElement addressFiled = driver.findElement(By.xpath("//*[@id=\"currentAddress\"]"));
+//        addressFiled.sendKeys("Judet Timis, Oras Timisoara, Calea Sagului, nr 78");
+//
+//        WebElement permanentAddressField = driver.findElement(By.xpath("//*[@id=\"permanentAddress\"]"));
+//        permanentAddressField.sendKeys("Nu se stie");
+//
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0,160)");
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement submitButton = driver.findElement(By.id("submit"));
+//        submitButton.click();
+//
+//        WebElement listaCompletata = driver.findElement(By.xpath("//*[@id='output']"));
+//        listaCompletata.getSize();
+//        System.out.println("Lista contine " + listaCompletata.getSize() + "elemente");
+//    }
 
-        WebElement nameField = driver.findElement(By.id("userName"));
-        nameField.sendKeys("Stanciu Ionut");
-
-        WebElement emailFiled = driver.findElement(By.xpath("//input[@id='userEmail']"));
-        emailFiled.sendKeys("it@gmail.com");
-
-        WebElement addressFiled = driver.findElement(By.xpath("//*[@id=\"currentAddress\"]"));
-        addressFiled.sendKeys("Judet Timis, Oras Timisoara, Calea Sagului, nr 78");
-
-        WebElement permanentAddressField = driver.findElement(By.xpath("//*[@id=\"permanentAddress\"]"));
-        permanentAddressField.sendKeys("Nu se stie");
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,160)");
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement submitButton = driver.findElement(By.id("submit"));
-        submitButton.click();
-
-        WebElement listaCompletata = driver.findElement(By.xpath("//*[@id='output']"));
-        listaCompletata.getSize();
-        System.out.println("Lista contine " + listaCompletata.getSize() + "elemente");
-    }
-
-    public void checkBoxMenu() {
-        WebElement checkBoxMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        checkBoxMenu.click();
-
-        WebElement checkBox = driver.findElement(By.xpath("//span[text()='Check Box']"));
-        checkBox.click();
-
-        WebElement checkBoxExample = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/span/button"));
-        checkBoxExample.click();
-
-        WebElement checkBoxExample2 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button"));
-        checkBoxExample2.click();
-
-        WebElement checkBoxExample3 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button"));
-        checkBoxExample3.click();
-
-        WebElement openMenu = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/button"));
-        openMenu.click();
-
-        WebElement openMenu2 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button"));
-        openMenu2.click();
-
-        WebElement checkBoxExample4 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/button"));
-        checkBoxExample4.click();
-
-        WebElement firstCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
-        firstCheckBox.click();
-
-        WebElement secondCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/ol/li[1]/span/label/span[1]"));
-        secondCheckBox.click();
-
-        WebElement thirdCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[3]/span/label/span[1]"));
-        thirdCheckBox.click();
-
-        WebElement fourthCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[3]/ol/li[1]/span/label/span[1]"));
-        fourthCheckBox.click();
-
-    }
+//    public void checkBoxMenu() {
+//        WebElement checkBoxMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
+//        checkBoxMenu.click();
+//
+//        WebElement checkBox = driver.findElement(By.xpath("//span[text()='Check Box']"));
+//        checkBox.click();
+//
+//        WebElement checkBoxExample = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/span/button"));
+//        checkBoxExample.click();
+//
+//        WebElement checkBoxExample2 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button"));
+//        checkBoxExample2.click();
+//
+//        WebElement checkBoxExample3 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button"));
+//        checkBoxExample3.click();
+//
+//        WebElement openMenu = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/span/button"));
+//        openMenu.click();
+//
+//        WebElement openMenu2 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/span/button"));
+//        openMenu2.click();
+//
+//        WebElement checkBoxExample4 = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/button"));
+//        checkBoxExample4.click();
+//
+//        WebElement firstCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
+//        firstCheckBox.click();
+//
+//        WebElement secondCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[1]/ol/li[1]/span/label/span[1]"));
+//        secondCheckBox.click();
+//
+//        WebElement thirdCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/ol/li[2]/ol/li[3]/span/label/span[1]"));
+//        thirdCheckBox.click();
+//
+//        WebElement fourthCheckBox = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[3]/ol/li[1]/span/label/span[1]"));
+//        fourthCheckBox.click();
+//
+//    }
 
 //    public void secondMethod(){
 //        WebElement checkBoxMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
@@ -137,42 +137,42 @@ public class ExercitiiDEMOQA {
 //        hideAllBoxes.click();
 //    }
 
-    public void radioButtonMenu() {
-        WebElement radioButtonMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        radioButtonMenu.click();
+//    public void radioButtonMenu() {
+//        WebElement radioButtonMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
+//        radioButtonMenu.click();
+//
+//        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Radio Button']"));
+//        clickOnRadioButtonMenu.click();
+//
+//        WebElement clickOnYes = driver.findElement(By.xpath("//label[@for='yesRadio']"));
+//        clickOnYes.click();
+//    }
 
-        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Radio Button']"));
-        clickOnRadioButtonMenu.click();
-
-        WebElement clickOnYes = driver.findElement(By.xpath("//label[@for='yesRadio']"));
-        clickOnYes.click();
-    }
-
-    public void justClickingButtons() {
-        WebElement radioButtonMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        radioButtonMenu.click();
-
-        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Buttons']"));
-        clickOnRadioButtonMenu.click();
-
-        WebElement clickButton = driver.findElement(By.id("doubleClickBtn"));
-        Actions actions = new Actions(driver);
-        actions.doubleClick(driver.findElement(By.id("doubleClickBtn"))).perform();
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement rightClick = driver.findElement(By.id("rightClickBtn"));
-        Actions rightCLick = new Actions(driver);
-        actions.contextClick(driver.findElement(By.id("rightClickBtn"))).perform();
-
-        WebElement normalClick = driver.findElement(By.xpath("//button[text()='Click Me']"));
-        Actions normalClickAction = new Actions(driver);
-        actions.click(driver.findElement(By.xpath("//button[text()='Click Me']"))).perform();
-    }
+//    public void justClickingButtons() {
+//        WebElement radioButtonMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
+//        radioButtonMenu.click();
+//
+//        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Buttons']"));
+//        clickOnRadioButtonMenu.click();
+//
+//        WebElement clickButton = driver.findElement(By.id("doubleClickBtn"));
+//        Actions actions = new Actions(driver);
+//        actions.doubleClick(driver.findElement(By.id("doubleClickBtn"))).perform();
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement rightClick = driver.findElement(By.id("rightClickBtn"));
+//        Actions rightCLick = new Actions(driver);
+//        actions.contextClick(driver.findElement(By.id("rightClickBtn"))).perform();
+//
+//        WebElement normalClick = driver.findElement(By.xpath("//button[text()='Click Me']"));
+//        Actions normalClickAction = new Actions(driver);
+//        actions.click(driver.findElement(By.xpath("//button[text()='Click Me']"))).perform();
+//    }
 
     public void linksMenu() {
         WebElement linksMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
@@ -202,73 +202,73 @@ public class ExercitiiDEMOQA {
         }
     }
 
-    public void clickingErrorLinks() {
-        WebElement linksMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        linksMenu.click();
-
-        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Links']"));
-        clickOnRadioButtonMenu.click();
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,1000)");
-
-        WebElement firstLink = driver.findElement(By.id("created"));
-        firstLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement secondLink = driver.findElement(By.id("no-content"));
-        secondLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement thirdLink = driver.findElement(By.id("moved"));
-        thirdLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement fourthLink = driver.findElement(By.id("bad-request"));
-        fourthLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement fifthLink = driver.findElement(By.id("unauthorized"));
-        fifthLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement sixthLink = driver.findElement(By.id("forbidden"));
-        sixthLink.click();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement seventhLink = driver.findElement(By.id("invalid-url"));
-        seventhLink.click();
-    }
+//    public void clickingErrorLinks() {
+//        WebElement linksMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
+//        linksMenu.click();
+//
+//        WebElement clickOnRadioButtonMenu = driver.findElement(By.xpath("//span[text()='Links']"));
+//        clickOnRadioButtonMenu.click();
+//
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0,1000)");
+//
+//        WebElement firstLink = driver.findElement(By.id("created"));
+//        firstLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement secondLink = driver.findElement(By.id("no-content"));
+//        secondLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement thirdLink = driver.findElement(By.id("moved"));
+//        thirdLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement fourthLink = driver.findElement(By.id("bad-request"));
+//        fourthLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement fifthLink = driver.findElement(By.id("unauthorized"));
+//        fifthLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement sixthLink = driver.findElement(By.id("forbidden"));
+//        sixthLink.click();
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        WebElement seventhLink = driver.findElement(By.id("invalid-url"));
+//        seventhLink.click();
+//    }
 
     public void brokenLinksMenu() {
         WebElement brokenlinks = driver.findElement(By.xpath("//h5[text()='Elements']"));

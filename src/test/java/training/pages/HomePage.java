@@ -29,25 +29,9 @@ public class HomePage extends BasePage {
         Assert.assertTrue(pageTitle.getAttribute("alt").equals("Selenium Online Training"),"Page is not loaded correctly");
     }
 
-    //Facem metode specifice pt pagina;
-//    public void clickFormsMenu() {
-//        formsMenuElement.click();
-//    }
-
     //Facem o metoda care sa faca click pe un meniu ales;
     public void selectMenu(String menuName){
-        scrollDown();
-
-        for (WebElement element: menuListElement){
-            if (element.getText().equals(menuName)) {
-                element.click();
-                break;
-            }
-        }
-    }
-
-    public void scrollDown() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,160)");
+        elementsHelper.scrollDownMethod();
+        elementsHelper.selectElementByTextFromList(menuName, menuListElement);
     }
 }

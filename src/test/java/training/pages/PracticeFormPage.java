@@ -1,11 +1,13 @@
 package training.pages;
 
+import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PracticeFormPage extends BasePage{
 
@@ -43,6 +45,9 @@ public class PracticeFormPage extends BasePage{
     @FindBy (xpath = "//label[text()=\"Reading\"]")
     private WebElement hobbiesInput2;
 
+    @FindBy (xpath = "//label[text()=\"Music\"]")
+    private WebElement musicHobbyElement;
+
     @FindBy (id = "currentAddress")
     private WebElement currentAddress;
 
@@ -70,31 +75,47 @@ public class PracticeFormPage extends BasePage{
     }
 
     //Metode specifice paginii:
-
-    public void fillEntireForm(){
-        fillFirstAndLastName();
-        emailInput();
-        genderLabel("Male");
-        phoneNumberInput();
-        selectSubject();
-        hobbiesInput();
-        currentAddress();
-        uploadPicture();
-        dateOfBirth();
-        scrollDown();
-        stateAndCity();
-        pause();
+    public void fillEntireForm(String firstName, String lastName, String emailValue, String gender, String phoneNumber, List<String> subjects, List<String> hobbies,
+                               String address, String DOB, String state, String city){
+        fillFirstAndLastName(firstName, lastName);
+        emailInput(emailValue);
+        genderLabel(gender);
+        elementsHelper.scrollDownMethod();
+        phoneNumberInput(phoneNumber);
+        selectSubject(subjects);
+        hobbiesInput(hobbies);
+        currentAddress(address);
+        dateOfBirth(DOB);
+        elementsHelper.scrollDownMethod();
+        stateAndCity(state, city);
+        elementsHelper.threadSleep(2000);
         submitButton();
-        pause2();
     }
 
-    public void emailInput() {
-        emailInput.sendKeys("itschool@gmail.com");
+    public void fillEntireFormWithPropertiesData(Map<String, Object> practiceFormData){
+        fillFirstAndLastName((String) practiceFormData.get("firstName"), (String) practiceFormData.get("lastName"));
+        emailInput((String) practiceFormData.get("email"));
+        genderLabel((String) practiceFormData.get("gender"));
+        elementsHelper.scrollDownMethod();
+        phoneNumberInput((String) practiceFormData.get("phoneNumber"));
+        selectSubject((List <String>) practiceFormData.get("subject"));
+        hobbiesInput((List <String>) practiceFormData.get("hobbies"));
+        currentAddress((String) practiceFormData.get("address"));
+        dateOfBirth((String) practiceFormData.get("DOB"));
+        elementsHelper.scrollDownMethod();
+        stateAndCity((String) practiceFormData.get("state"), (String) practiceFormData.get("city"));
+        elementsHelper.threadSleep(2000);
+        submitButton();
     }
 
-    public void fillFirstAndLastName() {
-        firstNameinput.sendKeys("Stanciu");
-        lastNameinput.sendKeys("Ionut");
+    //Metode specifice pentru fiecare input al formularului;
+    public void emailInput(String emailValue) {
+        emailInput.sendKeys(emailValue);
+    }
+
+    public void fillFirstAndLastName(String firstName, String lastName) {
+        elementsHelper.fillElement(firstNameinput, firstName);
+        elementsHelper.fillElement(lastNameinput, lastName);
     }
 
     public void genderLabel(String gender) {
@@ -103,85 +124,58 @@ public class PracticeFormPage extends BasePage{
         genderListElement.add(femaleGenderElement);
         genderListElement.add(otherGenderElement);
 
-        for (int index = 0; index < genderListElement.size(); index++) {
-            if (genderListElement.get(index).getText().equals(gender)) {
-                genderListElement.get(index).click();
-            }
+        elementsHelper.selectElementByTextFromList(gender, genderListElement);
+    }
+
+    public void phoneNumberInput(String phoneNumber){
+        elementsHelper.fillElement(phoneNumberInput, phoneNumber);
+    }
+
+    public void selectSubject(List <String> subjectList){
+        for (String subject : subjectList){
+            elementsHelper.selectElementUsingKeys(subjectsInput, subject, Keys.ENTER);
         }
     }
 
-    public void phoneNumberInput(){
-        phoneNumberInput.sendKeys("07707070707");
+    public void hobbiesInput(List <String> hobbiesList){
+        List <WebElement> hobbiesElementsList = List.of(hobbiesInput, hobbiesInput2, musicHobbyElement);
+        for (String hobby : hobbiesList ){
+            elementsHelper.selectElementByTextFromList(hobby, hobbiesElementsList);
+        }
     }
 
-    public void selectSubject(){
-        subjectsInput.sendKeys("Accounting");
-        subjectsInput.sendKeys(Keys.ENTER);
-        subjectsInput.sendKeys("Maths");
-        subjectsInput.sendKeys(Keys.ENTER);
-    }
-
-    public void hobbiesInput(){
-        hobbiesInput.click();
-        hobbiesInput2.click();
-    }
-
-    public void currentAddress(){
-        currentAddress.sendKeys("Marte, nr 72");
+    public void currentAddress(String address){
+        elementsHelper.fillElement(currentAddress, address);
     }
 
     public void uploadPicture(){
-        uploadPicture.sendKeys("C:\\Users\\stanc\\Desktop/Screenshot 2024-09-27 181553.png");
+        elementsHelper.uploadFileToElement(uploadPicture);
     }
 
-    public void dateOfBirth(){
-        dateOfBirth.sendKeys("11 January 2004");
-        dateOfBirth.sendKeys(Keys.HOME);
-        for (int index = 1; index <= 11; index++ ){
+    public void dateOfBirth(String dateOfBirthValue){
+        elementsHelper.selectElementUsingKeys(dateOfBirth, dateOfBirthValue, Keys.HOME);
+        for (int index = 1; index <= 11; index++){
             defaultElement.sendKeys(Keys.DELETE);
         }
         dateOfBirth.sendKeys(Keys.ENTER);
     }
 
-    public void scrollDown() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,160)");
-    }
-
-    public void stateAndCity(){
-        stateInput.sendKeys("NCR");
-        stateInput.sendKeys(Keys.ENTER);
-
-        cityInput.sendKeys("Delhi");
-        cityInput.sendKeys(Keys.ENTER);
-    }
-
-    public void pause(){
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void stateAndCity(String stateValue, String cityValue){
+        elementsHelper.selectElementUsingKeys(stateInput, stateValue, Keys.ENTER);
+        elementsHelper.selectElementUsingKeys(cityInput, cityValue, Keys.ENTER);
     }
 
     public void submitButton(){
-        submitButton.click();
-    }
-
-    public void pause2(){
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        elementsHelper.clickElement(submitButton);
     }
 
     public void closeTheForm(){
-        closeForm.click();
+        elementsHelper.clickElement(closeForm);
     }
 
     @Override
     public void isPageLoaded() {
+        elementsHelper.waitForElement(pageTitleElement);
         Assert.assertEquals(pageTitleElement.getText(), "Practice Form", "Title is invalid and actual value is: " +pageTitleElement.getText());
     }
 }

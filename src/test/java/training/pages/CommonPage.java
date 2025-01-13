@@ -26,24 +26,13 @@ public class CommonPage extends BasePage{
         Assert.assertEquals(driver.getTitle(), "DEMOQA", "Page title is not the expected one");
     }
 
+    //Meotda pt a selecta meniul dorit;
     public void selectMenu(String menuName){
-        //scrollDown();
-
-        for (WebElement element: menuListElement){
-            if (element.getText().equals(menuName)) {
-                element.click();
-                break;
-            }
-        }
+        elementsHelper.selectElementByTextFromList(menuName, menuListElement);
     }
 
+    //Meotda pt a selecta sub-meniul dorit;
     public void selectSubMenu(String subMenuName){
-
-        for (WebElement element: subMenuList){
-            if (element.getText().equals(subMenuName)){
-                element.click();
-                break;
-            }
-        }
+        elementsHelper.selectElementByTextFromList(subMenuName, subMenuList);
     }
 }

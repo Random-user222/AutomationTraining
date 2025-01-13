@@ -1,15 +1,10 @@
 package training.pages;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 public class AlertsPage extends BasePage{
 
@@ -34,32 +29,30 @@ public class AlertsPage extends BasePage{
     }
 
     //Metode specifice pt pagina:
-    public void interactWithAllAlerts(){
-        clickFirstAlertButton();
+    public void interactWithAllAlerts(String alertText){
+        interactWithFirstAlert();
         interactWithWaitingAlert();
-        clickThirdButton();
-        clickFourthButton();
+        interactWithThirdAlert();
+        interactWithPromptAlert(alertText);
     }
 
-    public void clickFirstAlertButton(){
-        firstAlertButton.click();
-        Alert clickOk = driver.switchTo().alert();
-        clickOk.accept();
+    //Metode care sa interactioneze cu alertele;
+    public void interactWithFirstAlert(){
+        elementsHelper.clickElement(firstAlertButton);
+        alertHelpers.acceptAlert();
     }
 
     public void interactWithWaitingAlert(){
-        clickSecondAlertButton();
-        waitForSecondAlert();
-        acceptSecondAlert();
+        elementsHelper.clickElement(secondAlert);
+        alertHelpers.timerAlert();
     }
 
     public void clickSecondAlertButton(){
-        secondAlert.click();
+        elementsHelper.clickElement(secondAlert);
     }
 
     public void waitForSecondAlert(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
-        wait.until(ExpectedConditions.alertIsPresent());
+        elementsHelper.waitForElement(secondAlert);
     }
 
     public void acceptSecondAlert(){
@@ -67,17 +60,14 @@ public class AlertsPage extends BasePage{
         timerAlert.accept();
     }
 
-    public void clickThirdButton(){
-        thirdButton.click();
-        Alert confirmBoxAlert = driver.switchTo().alert();
-        confirmBoxAlert.dismiss();
+    public void interactWithThirdAlert(){
+        elementsHelper.clickElement(thirdButton);
+        alertHelpers.dismissAlert();
     }
 
-    public void clickFourthButton(){
-        fourthButton.click();
-        Alert promtAlert = driver.switchTo().alert();
-        promtAlert.sendKeys("Emanuel");
-        promtAlert.accept();
+    public void interactWithPromptAlert(String text){
+        elementsHelper.clickElement(fourthButton);
+        alertHelpers.promptAlert(text);
     }
 
     @Override

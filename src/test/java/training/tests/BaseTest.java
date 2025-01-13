@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import propertyUtility.PropertyUtility;
 import training.pages.CommonPage;
 import training.pages.HomePage;
 
@@ -13,6 +14,7 @@ public class BaseTest {
     public WebDriver driver;
     public HomePage homePage;
     public CommonPage commonPage;
+    public PropertyUtility propertyUtility;
 
     @BeforeMethod
     public void openBrowser(){
@@ -20,19 +22,18 @@ public class BaseTest {
     homePage = new HomePage(driver);
     commonPage = new CommonPage(driver);
 
-    driver.get("https://demoqa.com/");
+    driver.get("https://www.automationexercise.com/");
     //Facem fereastra la dimensiunea maxima:
   driver.manage().window().maximize();
 
-        //Facem fereastra la dimensiunea dorita: 1980 cu 1080
+  //Facem fereastra la dimensiunea dorita: 1980 cu 1080
    // driver.manage().window().setSize(new Dimension(1980, 1080));
-
     }
 
-    @AfterMethod
-    public void quitBrowser(){
-        if (driver != null){
-            driver.quit();
-        }
-    }
+//    @AfterMethod
+//    public void quitBrowser(){
+//        if (driver != null){
+//            driver.quit();
+//        }
+//    }
 }

@@ -29,47 +29,28 @@ public class WindowsPage extends BasePage{
         super(driver);
     }
 
+    //Metode specifice pt a interactiona cu tab-uri sau windows;
+    public void interactWithAllWindowsOrTabs(){
+        clickNewTab();
+        clickOnNewWindow();
+    }
+
+    //Metode specifice pt a deschide si inchide tab-urile sau noile ferestre deschise;
     public void clickNewTab() {
-        String originalWindows = driver.getWindowHandle();
-        newTabElement.click();
-        for (String windowHandle : driver.getWindowHandles()) {
-            if (!windowHandle.equals(originalWindows)) {
-                driver.switchTo().window(windowHandle);
-                System.out.println("Textul din noul tab este: " +sampleText.getText());
-                break;
-            }
-        }
-        driver.close();
-        driver.switchTo().window(originalWindows);
+        elementsHelper.clickElement(newTabElement);
+        windowHelpers.switchToWindow(1);
+        System.out.println("Textul din noul tab este: " +sampleText.getText());
+        windowHelpers.closeWindowOrTab();
+        windowHelpers.switchToWindow(0);
     }
 
     public void clickOnNewWindow(){
-        String originalWindows = driver.getWindowHandle();
-        newWindowElement.click();
-        for (String windowHandle : driver.getWindowHandles()) {
-            if (!windowHandle.equals(originalWindows)) {
-                driver.switchTo().window(windowHandle);
-                System.out.println("Textul din noul tab este: " +sampleText.getText());
-                break;
-            }
-        }
-        driver.close();
-        driver.switchTo().window(originalWindows);
+        elementsHelper.clickElement(newWindowElement);
+        windowHelpers.switchToWindow(1);
+        System.out.println("Textul din noua fereastra este: " +sampleText.getText());
+        windowHelpers.closeWindowOrTab();
+        windowHelpers.switchToWindow(0);
     }
-
-//    public void clickOnNewWindowMessage(){
-//        String originalWindows = driver.getWindowHandle();
-//        newWindowMessage.click();
-//        for (String windowHandle : driver.getWindowHandles()) {
-//            if (!windowHandle.equals(originalWindows)) {
-//                driver.switchTo().window(windowHandle);
-//                System.out.println("Mesajul din noul tab este: " +messageText.getText());
-//                break;
-//            }
-//        }
-//        driver.close();
-//        driver.switchTo().window(originalWindows);
-//    }
 
     @Override
     public void isPageLoaded() {
