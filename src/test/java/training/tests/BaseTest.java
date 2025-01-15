@@ -22,7 +22,7 @@ public class BaseTest {
     homePage = new HomePage(driver);
     commonPage = new CommonPage(driver);
 
-    driver.get("https://www.automationexercise.com/");
+    driver.get("https://demoqa.com/");
     //Facem fereastra la dimensiunea maxima:
   driver.manage().window().maximize();
 
