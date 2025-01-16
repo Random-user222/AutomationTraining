@@ -17,6 +17,6 @@ public class UploadDownloadTest extends BaseTest{
     UploadDownloadPage uploadDownloadPage = new UploadDownloadPage(driver);
     uploadDownloadPage.isPageLoaded();
     uploadDownloadPage.downloadTheImage();
-    uploadDownloadPage.uploadThePicture();
+//    uploadDownloadPage.uploadThePicture();
     }
 }

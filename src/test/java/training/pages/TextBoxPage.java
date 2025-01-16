@@ -2,6 +2,7 @@ package training.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,7 +23,7 @@ public class TextBoxPage extends BasePage{
     @FindBy (id = "permanentAddress")
     private WebElement permanentAddressField;
 
-    @FindBy (id = "submit")
+    @FindBy (xpath = "//*[@id=\"submit\"]")
     private WebElement submitButton;
 
     @FindBy (id = "output")
@@ -38,6 +39,8 @@ public class TextBoxPage extends BasePage{
         emailField();
         currentAddress();
         permanentAddress();
+        elementsHelper.scrollDownMethod();
+        elementsHelper.threadSleep(200);
         submitButton();
         informationFromForm();
         elementsHelper.scrollDownMethod();
@@ -62,6 +65,8 @@ public class TextBoxPage extends BasePage{
     }
 
     public void submitButton(){
+        Actions actions = new Actions(driver);
+        actions.scrollToElement(submitButton);
         elementsHelper.clickElement(submitButton);
     }
 
