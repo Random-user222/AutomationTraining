@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.*;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class RadioButtonsPage extends BasePage{
     //Metode specifice pt a printa in consola un text de pe site;
     public void printTheQuestion(){
         System.out.println("The question is: " +getQuestion.getText());
+        logEvents(INFO_STEP, "Printing the questions from the site");
     }
 
     public void selectAnOption(String answer) {
@@ -32,6 +35,7 @@ public class RadioButtonsPage extends BasePage{
 
     public void printTheAnswer(){
         System.out.println("Your answer is: " +getAnswer.getText());
+        logEvents(INFO_STEP, "Printing the answer from the question above");
     }
 
     @Override

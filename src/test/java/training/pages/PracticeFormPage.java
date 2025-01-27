@@ -4,6 +4,8 @@ import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +108,7 @@ public class PracticeFormPage extends BasePage{
         stateAndCity((String) practiceFormData.get("state"), (String) practiceFormData.get("city"));
         elementsHelper.threadSleep(2000);
         submitButton();
+        logEvents(INFO_STEP, "Filling a form using Data Properties and Helpers");
     }
 
     //Metode specifice pentru fiecare input al formularului;

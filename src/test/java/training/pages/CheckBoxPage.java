@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.INFO_STEP;
+import static extentUtility.ReportEventType.PASS_STEP;
 
 public class CheckBoxPage extends BasePage{
     @FindBy(xpath = "//h1")
@@ -43,9 +46,13 @@ public class CheckBoxPage extends BasePage{
     //Metoda unde chemam metodele pt a deschide foldere si de a le bifa;
     public void openingAndCheckingFolders(){
         openFolders();
+        logEvents(INFO_STEP, "Click on the element to show more options");
         elementsHelper.scrollDownMethod();
+        logEvents(PASS_STEP, "Using Scroll Down Method to reach the element");
         elementsHelper.threadSleep(2000);
+        logEvents(PASS_STEP, "Using a ThreadSleep to wait for the site to load properly");
         checkingBoxes();
+        logEvents(INFO_STEP, "Select few options from the previous step");
     }
 
     //Metoda pt a deschide folderele;

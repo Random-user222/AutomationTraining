@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.*;
 
 import java.util.List;
 import java.util.Map;
@@ -75,6 +77,7 @@ public class WebTablePage extends BasePage{
             salaryInput(salaryValues.get(index));
             departmentInput(departmentValues.get(index));
             submitInput();
+            logEvents(INFO_STEP, "Filling the entire form using Data Properties");
         }
     }
 
@@ -84,6 +87,7 @@ public class WebTablePage extends BasePage{
         numarTotalRanduri();
         noulNumarDePersoane();
         randuriRamase();
+        logEvents(INFO_STEP, "Validate the informations from the form");
     }
 
     //Metode specifice pt a completa input-urile formularului;

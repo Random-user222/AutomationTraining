@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.*;
 
 public class WindowsPage extends BasePage{
 
@@ -38,18 +40,26 @@ public class WindowsPage extends BasePage{
     //Metode specifice pt a deschide si inchide tab-urile sau noile ferestre deschise;
     public void clickNewTab() {
         elementsHelper.clickElement(newTabElement);
+        logEvents(INFO_STEP, "Open a new tab by clicking the button on the page");
         windowHelpers.switchToWindow(1);
+        logEvents(PASS_STEP, "Using Window Helper to switch to the new tab");
         System.out.println("Textul din noul tab este: " +sampleText.getText());
         windowHelpers.closeWindowOrTab();
+        logEvents(PASS_STEP, "Using Window Helper to close the new tab");
         windowHelpers.switchToWindow(0);
+        logEvents(INFO_STEP, "Using Window Helper to switch the focus to the previous tab");
     }
 
     public void clickOnNewWindow(){
         elementsHelper.clickElement(newWindowElement);
+        logEvents(INFO_STEP, "Open a new window by clicking the button on the page");
         windowHelpers.switchToWindow(1);
+        logEvents(PASS_STEP, "Using Window Helper to switch to the new window");
         System.out.println("Textul din noua fereastra este: " +sampleText.getText());
         windowHelpers.closeWindowOrTab();
+        logEvents(PASS_STEP, "Using Window Helper to close the new window");
         windowHelpers.switchToWindow(0);
+        logEvents(INFO_STEP, "Using Window Helper to switch the focus to the previous window");
     }
 
     @Override

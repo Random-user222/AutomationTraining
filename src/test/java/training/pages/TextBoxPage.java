@@ -6,6 +6,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.*;
 
 public class TextBoxPage extends BasePage{
     @FindBy(xpath = "//h1")
@@ -39,12 +41,19 @@ public class TextBoxPage extends BasePage{
         emailField();
         currentAddress();
         permanentAddress();
+        logEvents(INFO_STEP, "Filling the inputs form the site");
         elementsHelper.scrollDownMethod();
+        logEvents(PASS_STEP, "Using Scroll Down Method to reach the next element");
         elementsHelper.threadSleep(200);
+        logEvents(PASS_STEP, "Using ThreadSleep to wait");
         submitButton();
+        logEvents(INFO_STEP, "Click on the Submit Button after filling the form");
         informationFromForm();
+        logEvents(INFO_STEP, "Printing the information from the form");
         elementsHelper.scrollDownMethod();
+        logEvents(PASS_STEP, "Using Scroll Down Method to reach the next element");
         elementsHelper.threadSleep(200);
+        logEvents(PASS_STEP, "Using ThreadSleep to wait");
     }
 
     //Metode pt a completa field-urile formularului;

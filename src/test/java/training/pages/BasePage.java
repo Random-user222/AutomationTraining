@@ -1,11 +1,15 @@
 package training.pages;
 
+import extentUtility.ExtentManager;
+import extentUtility.ReportEventType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import training.helpers.AlertHelpers;
 import training.helpers.ElementsHelper;
 import training.helpers.FrameHelpers;
 import training.helpers.WindowHelpers;
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.INFO_STEP;
 
 public abstract class BasePage {
 

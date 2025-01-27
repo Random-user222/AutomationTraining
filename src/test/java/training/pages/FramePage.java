@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import static extentUtility.ExtentManager.logEvents;
+import static extentUtility.ReportEventType.INFO_STEP;
+import static extentUtility.ReportEventType.PASS_STEP;
+
 public class FramePage extends BasePage{
 
     @FindBy(xpath = "//h1")
@@ -28,19 +32,26 @@ public class FramePage extends BasePage{
     public void interactWithAllFrames(){
         interactiveFrameOne();
         interactiveFrameTwo();
+        logEvents(INFO_STEP, "Interact with all frames from the page");
     }
 
     //Metode pt a interactiona cu fiecare frame;
     public void interactiveFrameOne (){
         frameHelpers.switchOnFrame(frameOneElement);
+        logEvents(INFO_STEP, "Using Frame Helper to switch the focus to the frame");
         System.out.println("Testul din framu-ul 1 este: " + sampleText.getText());
+        logEvents(PASS_STEP, "Interact with the frame and get the text form it");
         frameHelpers.switchToDefaultPage();
+        logEvents(INFO_STEP, "Using Frame Helper to switch the focus to the default content");
     }
 
     public void interactiveFrameTwo (){
         frameHelpers.switchOnFrame(frameTwoElement);
+        logEvents(INFO_STEP, "Using Frame Helper to switch the focus to the frame");
         System.out.println("Testul din framu-ul 2 este: " + sampleText.getText());
+        logEvents(PASS_STEP, "Interact with the frame and get the text form it");
         frameHelpers.switchToDefaultPage();
+        logEvents(INFO_STEP, "Using Frame Helper to switch the focus to the default content");
     }
 
     @Override
